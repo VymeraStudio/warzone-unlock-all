@@ -1,0 +1,101 @@
+---
+import salao from '../data/salao.json';
+import conteudo from '../data/conteudo.json';
+
+const ano = new Date().getFullYear();
+---
+
+<footer class="rod">
+  <div class="rod__int">
+    <div class="rod__marca">
+      <img src="/logo-simples.svg" alt="" width="44" height="44" />
+      <span>{salao.nomeCompleto}</span>
+    </div>
+
+    <nav class="rod__legal" aria-label="Informação legal">
+      <a href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener">
+        Livro de Reclamações
+      </a>
+      <a href="/privacidade">Política de Privacidade</a>
+      <a href="/termos">Termos e Condições</a>
+    </nav>
+
+    <div class="rod__empresa">
+      <p>{salao.legal.denominacao} · NIF {salao.legal.nif}</p>
+      <p>{salao.morada.rua}, {salao.morada.codigoPostal} {salao.morada.cidade}</p>
+      <p class="rod__ral">
+        Em caso de litígio de consumo, o consumidor pode recorrer ao {salao.legal.centroArbitragem}.
+      </p>
+    </div>
+
+    <p class="rod__base">
+      © {ano} {salao.nomeCompleto} · Site por <a href={conteudo.assinaturaAgencia.url} target="_blank" rel="noopener">{conteudo.assinaturaAgencia.texto}</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .rod {
+    background: var(--texto);
+    color: var(--fundo);
+    padding-block: var(--e-lg);
+  }
+
+  .rod__int {
+    max-width: var(--largura-max);
+    margin-inline: auto;
+    padding-inline: var(--e-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--e-md);
+    align-items: center;
+    text-align: center;
+  }
+
+  .rod__marca {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+  }
+
+  .rod__legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--e-sm) var(--e-md);
+  }
+
+  .rod__legal a {
+    font-size: var(--t-peq);
+    color: var(--fundo);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(247, 242, 236, 0.35);
+    padding-bottom: 2px;
+  }
+
+  .rod__legal a:hover { border-color: var(--acento); }
+
+  .rod__empresa p {
+    font-size: 0.75rem;
+    color: rgba(247, 242, 236, 0.65);
+    margin: 0 0 0.35rem;
+  }
+
+  .rod__ral { max-width: 52ch; margin-inline: auto; }
+
+  .rod__base {
+    font-size: 0.75rem;
+    color: rgba(247, 242, 236, 0.5);
+    margin: 0;
+    padding-top: var(--e-sm);
+    border-top: 1px solid rgba(247, 242, 236, 0.15);
+    width: 100%;
+  }
+
+  .rod__base a {
+    color: var(--acento);
+    text-decoration: none;
+  }
+</style>

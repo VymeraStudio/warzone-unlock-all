@@ -1,0 +1,50 @@
+{
+  "hero": {
+    "botao": "Marcar hora",
+    "nota": "Resposta no mesmo dia via WhatsApp"
+  },
+  "servicos": {
+    "kicker": "Preçário",
+    "titulo": "Serviços",
+    "nota": "Valores indicativos. O preço final depende do comprimento e da densidade do cabelo — confirmamos sempre antes de começar."
+  },
+  "galeria": {
+    "kicker": "Portefólio",
+    "titulo": "Trabalhos",
+    "nota": "Alguns dos resultados criados no estúdio. Cada cabelo é único — o resultado é sempre pensado para si.",
+    "legendas": [
+      "Balayage em tons de mel",
+      "Corte bob com ondas suaves",
+      "Coloração castanha com reflexos",
+      "Madeixas iluminadas",
+      "Verniz gel em tom nude",
+      "Brushing com volume"
+    ],
+    "legendaFallback": "Trabalho realizado no estúdio"
+  },
+  "sobre": {
+    "kicker": "Quem cuida de si",
+    "nome": "Sofia Marques",
+    "paragrafos": [
+      "Trabalho com cabelo há doze anos e continuo a achar que a melhor parte é a conversa antes da tesoura. Perceber a rotina de cada pessoa, o tempo que tem de manhã, o que já correu mal antes — é daí que sai um corte que funciona no dia a dia, e não só à saída do salão.",
+      "Especializei-me em coloração e técnicas de iluminação, com formação contínua todos os anos, porque a técnica muda e o cabelo de cada pessoa também."
+    ],
+    "assinatura": "No Sol, ninguém sai sem gostar do que vê ao espelho.",
+    "botao": "Marcar a sua hora",
+    "altFoto": "Sofia Marques, fundadora do Studio Sol"
+  },
+  "localizacao": {
+    "kicker": "Visite-nos",
+    "titulo": "Onde estamos"
+  },
+  "navegacao": [
+    { "texto": "Serviços", "ancora": "#servicos" },
+    { "texto": "Trabalhos", "ancora": "#trabalhos" },
+    { "texto": "Sobre", "ancora": "#sobre" },
+    { "texto": "Contactos", "ancora": "#contactos" }
+  ],
+  "assinaturaAgencia": {
+    "texto": "Vymera Studio",
+    "url": "https://vymera.pt"
+  }
+}

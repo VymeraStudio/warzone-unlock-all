@@ -1,0 +1,30 @@
+{
+  "nome": "[NOME CURTO]",
+  "nomeCompleto": "[NOME COMPLETO]",
+  "slogan": "[SLOGAN]",
+  "categoria": "[CATEGORIA]",
+  "telefone": "+351 000 000 000",
+  "whatsapp": "351000000000",
+  "email": "[EMAIL]",
+  "morada": {
+    "rua": "[RUA]",
+    "codigoPostal": "0000-000",
+    "cidade": "[CIDADE]",
+    "lat": 0,
+    "lng": 0
+  },
+  "horarios": [
+    { "dia": "[DIAS]", "horas": "00:00 – 00:00" }
+  ],
+  "instagram": "",
+  "facebook": "",
+  "legal": {
+    "denominacao": "[DENOMINAÇÃO SOCIAL]",
+    "nif": "000 000 000",
+    "centroArbitragem": "[CENTRO DE ARBITRAGEM DA REGIÃO]"
+  },
+  "seo": {
+    "titulo": "[NOME] — [CATEGORIA] em [CIDADE]",
+    "descricao": "[DESCRIÇÃO 150 CARACTERES]"
+  }
+}

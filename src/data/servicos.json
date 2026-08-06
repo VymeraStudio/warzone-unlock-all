@@ -1,0 +1,19 @@
+[
+  {
+    "categoria": "Cabelo",
+    "itens": [
+      { "nome": "Corte e brushing", "preco": "desde 25 €" },
+      { "nome": "Coloração completa", "preco": "desde 55 €" },
+      { "nome": "Madeixas / balayage", "preco": "desde 85 €" },
+      { "nome": "Tratamento de hidratação", "preco": "35 €" }
+    ]
+  },
+  {
+    "categoria": "Unhas",
+    "itens": [
+      { "nome": "Manicure simples", "preco": "15 €" },
+      { "nome": "Verniz gel", "preco": "25 €" },
+      { "nome": "Unhas de gel", "preco": "desde 40 €" }
+    ]
+  }
+]

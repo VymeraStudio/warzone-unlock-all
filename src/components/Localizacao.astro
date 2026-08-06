@@ -1,0 +1,152 @@
+---
+import salao from '../data/salao.json';
+import conteudo from '../data/conteudo.json';
+
+const enderecoCompleto = `${salao.morada.rua}, ${salao.morada.codigoPostal} ${salao.morada.cidade}`;
+const linkMapa = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${salao.nomeCompleto}, ${enderecoCompleto}`
+)}`;
+const telefoneLimpo = salao.telefone.replace(/\s/g, '');
+---
+
+<section class="loc" id="contactos">
+  <div class="loc__int">
+    <header class="loc__topo">
+      <p class="loc__kicker">{conteudo.localizacao.kicker}</p>
+      <h2>{conteudo.localizacao.titulo}</h2>
+    </header>
+
+    <div class="loc__grelha">
+      <div class="loc__bloco">
+        <h3>Morada</h3>
+        <address>
+          {salao.morada.rua}<br />
+          {salao.morada.codigoPostal} {salao.morada.cidade}
+        </address>
+        <a href={linkMapa} target="_blank" rel="noopener" class="loc__link">
+          Ver no Google Maps
+        </a>
+      </div>
+
+      <div class="loc__bloco">
+        <h3>Horário</h3>
+        <ul class="loc__horas">
+          {salao.horarios.map((h) => (
+            <li>
+              <span>{h.dia}</span>
+              <span class="loc__hora">{h.horas}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="loc__bloco">
+        <h3>Contactos</h3>
+        <ul class="loc__contactos">
+          <li><a href={`tel:${telefoneLimpo}`}>{salao.telefone}</a></li>
+          <li><a href={`mailto:${salao.email}`}>{salao.email}</a></li>
+          {salao.instagram && (
+            <li><a href={salao.instagram} target="_blank" rel="noopener">Instagram</a></li>
+          )}
+          {salao.facebook && (
+            <li><a href={salao.facebook} target="_blank" rel="noopener">Facebook</a></li>
+          )}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .loc {
+    background: var(--fundo-alt);
+    padding-block: var(--e-xl);
+  }
+
+  .loc__int {
+    max-width: var(--largura-max);
+    margin-inline: auto;
+    padding-inline: var(--e-sm);
+  }
+
+  .loc__topo {
+    text-align: center;
+    margin-bottom: var(--e-lg);
+  }
+
+  .loc__kicker {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--acento);
+    margin: 0 0 var(--e-xs);
+  }
+
+  .loc h2 {
+    font-size: var(--t-h2);
+    margin: 0;
+  }
+
+  .loc__grelha {
+    display: grid;
+    gap: var(--e-lg);
+  }
+
+  .loc h3 {
+    font-size: var(--t-h3);
+    padding-bottom: var(--e-xs);
+    margin-bottom: var(--e-sm);
+    border-bottom: 1px solid var(--borda);
+  }
+
+  .loc address {
+    font-style: normal;
+    margin-bottom: var(--e-sm);
+  }
+
+  .loc__link {
+    display: inline-block;
+    font-size: var(--t-peq);
+    letter-spacing: 0.06em;
+    color: var(--texto);
+    text-decoration: none;
+    border-bottom: 1px solid var(--acento);
+    padding-bottom: 2px;
+  }
+
+  .loc__link:hover { color: var(--texto-suave); }
+
+  .loc__horas,
+  .loc__contactos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .loc__horas li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--e-sm);
+    padding-block: 0.35rem;
+  }
+
+  .loc__hora {
+    color: var(--texto-suave);
+    white-space: nowrap;
+  }
+
+  .loc__contactos li { padding-block: 0.35rem; }
+
+  .loc__contactos a {
+    color: var(--texto);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .loc__contactos a:hover { border-color: var(--acento); }
+
+  @media (min-width: 800px) {
+    .loc__grelha { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

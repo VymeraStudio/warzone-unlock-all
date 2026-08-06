@@ -1,0 +1,127 @@
+---
+import { Image } from 'astro:assets';
+import salao from '../data/salao.json';
+import conteudo from '../data/conteudo.json';
+import BotaoMarcar from './BotaoMarcar.astro';
+import fotoHero from '../assets/hero.jpg';
+---
+
+<section class="hero">
+  <div class="hero__foto">
+    <Image
+      src={fotoHero}
+      alt={`Trabalho realizado no ${salao.nomeCompleto}`}
+      widths={[600, 900, 1400]}
+      sizes="(min-width: 900px) 45vw, 100vw"
+      loading="eager"
+      fetchpriority="high"
+      format="webp"
+      quality={80}
+    />
+  </div>
+
+  <div class="hero__texto">
+    <img src="/logo.svg" alt="" width="96" height="96" class="hero__selo" />
+    <p class="hero__sobre">{salao.categoria} · {salao.morada.cidade}</p>
+    <h1>{salao.nome}</h1>
+    <p class="hero__slogan">{salao.slogan}</p>
+    <BotaoMarcar texto={conteudo.hero.botao} />
+    <p class="hero__nota">{conteudo.hero.nota}</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__foto {
+    order: -1;
+    height: 45vh;
+    min-height: 280px;
+    max-height: 440px;
+    overflow: hidden;
+  }
+
+  .hero__foto :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+
+  .hero__texto {
+    padding: var(--e-lg) var(--e-sm);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__selo {
+    width: 76px;
+    height: auto;
+    margin-bottom: var(--e-sm);
+  }
+
+  .hero__sobre {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin: 0 0 var(--e-sm);
+  }
+
+  .hero h1 {
+    font-size: var(--t-hero);
+    margin: 0 0 var(--e-sm);
+  }
+
+  .hero__slogan {
+    font-family: var(--fonte-titulo);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--texto-suave);
+    max-width: 30ch;
+    margin: 0 0 var(--e-md);
+  }
+
+  .hero__nota {
+    font-size: 0.75rem;
+    color: var(--texto-suave);
+    margin: var(--e-sm) 0 0;
+  }
+
+@media (min-width: 900px) {
+  .hero {
+    flex-direction: row;
+    height: clamp(560px, 78vh, 740px);
+    align-items: stretch;
+    max-width: none;
+  }
+
+.hero__foto {
+  order: 2;
+  flex: 0 0 clamp(480px, 45%, 820px);
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  overflow: hidden;
+}
+
+  .hero__texto {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--e-xl);
+  }
+
+  .hero__texto > * {
+    max-width: 34ch;
+  }
+
+  .hero__selo { width: 110px; }
+}
+</style>

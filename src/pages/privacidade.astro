@@ -1,0 +1,88 @@
+---
+import LayoutTexto from '../layouts/LayoutTexto.astro';
+import salao from '../data/salao.json';
+---
+
+<LayoutTexto
+  titulo="Política de Privacidade"
+  descricao="Como o Studio Sol trata os dados pessoais dos visitantes do site."
+  atualizado="6 de agosto de 2026"
+>
+  <p>
+    O {salao.nomeCompleto} respeita a privacidade de quem visita este site.
+    Esta página explica que dados são — e não são — recolhidos.
+  </p>
+
+  <h2>Responsável pelo tratamento</h2>
+  <p>
+    {salao.nomeCompleto}, Unipessoal Lda.<br />
+    NIF 000 000 000<br />
+    {salao.morada.rua}, {salao.morada.codigoPostal} {salao.morada.cidade}<br />
+    <a href={`mailto:${salao.email}`}>{salao.email}</a>
+  </p>
+
+  <h2>Que dados recolhemos neste site</h2>
+  <p>
+    Este site é meramente informativo. Não tem formulários, não utiliza
+    cookies, não integra ferramentas de análise de tráfego nem redes de
+    publicidade. Ao navegar nestas páginas, não são recolhidos quaisquer
+    dados pessoais.
+  </p>
+  <p>
+    Como acontece com qualquer site, o servidor que o aloja regista
+    tecnicamente os acessos (endereço IP, data e hora). Esses registos são
+    gerados pelo fornecedor de alojamento para fins de segurança e
+    funcionamento do serviço, e não são utilizados por nós para identificar
+    visitantes.
+  </p>
+
+  <h2>Quando nos contacta</h2>
+  <p>
+    Se nos contactar por WhatsApp, telefone ou email, tratamos os dados que
+    nos fornecer — nome, contacto e a informação que partilhar — com a
+    finalidade de responder e, se for o caso, gerir a sua marcação.
+  </p>
+  <p>
+    O fundamento legal é a execução de medidas pré-contratuais a seu pedido,
+    nos termos do artigo 6.º, n.º 1, alínea b) do RGPD. Os dados são
+    conservados apenas durante o tempo necessário a essa finalidade e às
+    obrigações legais aplicáveis.
+  </p>
+  <p>
+    O WhatsApp é um serviço da Meta Platforms. Ao contactar-nos por esse
+    meio, aplicam-se também as políticas de privacidade dessa plataforma,
+    sobre as quais não temos controlo.
+  </p>
+
+  <h2>Partilha de dados</h2>
+  <p>
+    Não vendemos nem cedemos dados pessoais a terceiros. Os dados só são
+    partilhados quando exista obrigação legal ou quando necessário para a
+    prestação do serviço.
+  </p>
+
+  <h2>Os seus direitos</h2>
+  <p>Enquanto titular dos dados, pode exercer os direitos de:</p>
+  <ul>
+    <li>Acesso aos dados que tratamos a seu respeito</li>
+    <li>Retificação de dados incorretos ou incompletos</li>
+    <li>Apagamento dos dados</li>
+    <li>Limitação e oposição ao tratamento</li>
+    <li>Portabilidade dos dados</li>
+  </ul>
+  <p>
+    Para exercer qualquer destes direitos, contacte-nos através de
+    <a href={`mailto:${salao.email}`}>{salao.email}</a>.
+  </p>
+  <p>
+    Tem também o direito de apresentar reclamação à autoridade de controlo
+    competente — em Portugal, a Comissão Nacional de Proteção de Dados
+    (<a href="https://www.cnpd.pt" target="_blank" rel="noopener">cnpd.pt</a>).
+  </p>
+
+  <h2>Alterações</h2>
+  <p>
+    Esta política pode ser atualizada. A data da última revisão está
+    indicada no topo desta página.
+  </p>
+</LayoutTexto>

@@ -1,0 +1,70 @@
+---
+import LayoutTexto from '../layouts/LayoutTexto.astro';
+import salao from '../data/salao.json';
+---
+
+<LayoutTexto
+  titulo="Termos e Condições"
+  descricao="Condições de utilização do site e de prestação de serviços do Studio Sol."
+  atualizado="6 de agosto de 2026"
+>
+  <h2>Identificação</h2>
+  <p>
+    {salao.nomeCompleto}, Unipessoal Lda.<br />
+    NIF 000 000 000<br />
+    {salao.morada.rua}, {salao.morada.codigoPostal} {salao.morada.cidade}<br />
+    <a href={`tel:${salao.telefone.replace(/\s/g, '')}`}>{salao.telefone}</a> ·
+    <a href={`mailto:${salao.email}`}>{salao.email}</a>
+  </p>
+
+  <h2>Objeto</h2>
+  <p>
+    Este site tem carácter informativo e destina-se a apresentar os serviços
+    do {salao.nomeCompleto}. Não permite a compra de produtos ou serviços
+    em linha.
+  </p>
+
+  <h2>Marcações</h2>
+  <p>
+    Os pedidos de marcação efetuados através dos contactos indicados neste
+    site não são automaticamente confirmados. A marcação só se considera
+    agendada após confirmação expressa da nossa parte.
+  </p>
+  <p>
+    Pedimos que eventuais cancelamentos sejam comunicados com a maior
+    antecedência possível, para que possamos disponibilizar o horário a
+    outra pessoa.
+  </p>
+
+  <h2>Preços</h2>
+  <p>
+    Os valores apresentados são indicativos e incluem IVA à taxa legal em
+    vigor. O preço final pode variar consoante o comprimento, a densidade e
+    o estado do cabelo, bem como os produtos necessários. O valor é sempre
+    comunicado e acordado antes do início do serviço.
+  </p>
+
+  <h2>Propriedade intelectual</h2>
+  <p>
+    Os conteúdos deste site — textos, imagens, logótipo e elementos
+    gráficos — são propriedade do {salao.nomeCompleto} ou utilizados com a
+    devida autorização. Não é permitida a sua reprodução sem consentimento
+    prévio.
+  </p>
+
+  <h2>Reclamações e resolução de litígios</h2>
+    <p>
+    Está disponível o <a href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener">Livro de Reclamações Eletrónico</a>.
+    </p>
+    <p>
+    Em caso de litígio de consumo, o consumidor pode recorrer ao Centro de
+    Arbitragem de Conflitos de Consumo de Lisboa. Mais informação em <a href="https://www.consumidor.gov.pt" target="_blank" rel="noopener">consumidor.gov.pt</a>.
+    </p>
+
+  <h2>Lei aplicável</h2>
+  <p>
+    Estes termos regem-se pela lei portuguesa. Para a resolução de qualquer
+    litígio é competente o foro da comarca de {salao.morada.cidade}, sem
+    prejuízo dos direitos que assistem ao consumidor.
+  </p>
+</LayoutTexto>

@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Servicos from '../components/Servicos.astro';
+import Galeria from '../components/Galeria.astro';
+import Sobre from '../components/Sobre.astro';
+import Localizacao from '../components/Localizacao.astro';
+import Footer from '../components/Footer.astro';
+import BarraFixa from '../components/BarraFixa.astro';
+import salao from '../data/salao.json';
+---
+
+<Layout titulo={salao.seo.titulo} descricao={salao.seo.descricao}>
+  <Header />
+  <main>
+    <Hero />
+    <Servicos />
+    <Galeria />
+    <Sobre />
+    <Localizacao />
+  </main>
+  <Footer />
+  <BarraFixa />
+</Layout>

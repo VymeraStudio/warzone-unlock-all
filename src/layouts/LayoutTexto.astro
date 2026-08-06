@@ -1,0 +1,74 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  titulo: string;
+  descricao: string;
+  atualizado: string;
+}
+
+const { titulo, descricao, atualizado } = Astro.props;
+---
+
+<Layout titulo={titulo} descricao={descricao}>
+  <Header />
+  <main class="txt">
+    <article class="txt__int">
+      <h1>{titulo}</h1>
+      <p class="txt__data">Última atualização: {atualizado}</p>
+      <slot />
+      <p class="txt__voltar"><a href="/">← Voltar ao início</a></p>
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .txt { padding-block: var(--e-xl); }
+
+  .txt__int {
+    max-width: 68ch;
+    margin-inline: auto;
+    padding-inline: var(--e-sm);
+  }
+
+  .txt h1 {
+    font-size: var(--t-h2);
+    margin: 0 0 var(--e-xs);
+  }
+
+  .txt__data {
+    font-size: var(--t-peq);
+    color: var(--texto-suave);
+    margin: 0 0 var(--e-lg);
+  }
+
+  .txt :global(h2) {
+    font-family: var(--fonte-titulo);
+    font-size: var(--t-h3);
+    font-weight: 400;
+    margin: var(--e-md) 0 var(--e-sm);
+    padding-bottom: var(--e-xs);
+    border-bottom: 1px solid var(--borda);
+  }
+
+  .txt :global(p),
+  .txt :global(li) { margin-bottom: var(--e-sm); }
+
+  .txt :global(ul) { padding-left: 1.2rem; }
+
+  .txt :global(a) {
+    color: var(--texto);
+    text-decoration: none;
+    border-bottom: 1px solid var(--acento);
+  }
+
+  .txt__voltar {
+    margin-top: var(--e-lg);
+    padding-top: var(--e-sm);
+    border-top: 1px solid var(--borda);
+    font-size: var(--t-peq);
+  }
+</style>

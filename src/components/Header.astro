@@ -1,0 +1,76 @@
+---
+import salao from '../data/salao.json';
+import conteudo from '../data/conteudo.json';
+import BotaoMarcar from './BotaoMarcar.astro';
+---
+
+<header class="cab">
+  <div class="cab__int">
+    <a href="/" class="cab__marca" aria-label={`${salao.nomeCompleto} — início`}>
+      <img src="/logo-simples.svg" alt="" width="40" height="40" />
+      <span class="cab__nome">{salao.nomeCompleto}</span>
+    </a>
+
+    <nav class="cab__nav" aria-label="Navegação principal">
+      {conteudo.navegacao.map((item) => (
+        <a href={item.ancora}>{item.texto}</a>
+      ))}
+    </nav>
+
+    <BotaoMarcar classe="cab__btn" />
+  </div>
+</header>
+
+<style>
+  .cab {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(247, 242, 236, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borda);
+  }
+
+  .cab__int {
+    max-width: var(--largura-max);
+    margin-inline: auto;
+    padding: 0.75rem var(--e-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--e-sm);
+  }
+
+  .cab__marca {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--texto);
+  }
+
+  .cab__nome {
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .cab__nav { display: none; gap: var(--e-md); }
+
+  .cab__nav a {
+    font-size: var(--t-peq);
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    color: var(--texto-suave);
+    padding-block: 0.5rem;
+    transition: color 0.2s ease;
+  }
+  .cab__nav a:hover { color: var(--texto); }
+
+  .cab__btn { display: none; }
+
+  @media (min-width: 900px) {
+    .cab__nav { display: flex; }
+    .cab__btn { display: inline-flex; }
+  }
+</style>

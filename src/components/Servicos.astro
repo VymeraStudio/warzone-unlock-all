@@ -1,0 +1,131 @@
+---
+import servicos from '../data/servicos.json';
+import conteudo from '../data/conteudo.json';
+import BotaoMarcar from './BotaoMarcar.astro';
+---
+
+<section class="serv" id="servicos">
+  <div class="serv__int">
+    <header class="serv__topo">
+      <p class="serv__kicker">{conteudo.servicos.kicker}</p>
+      <h2>{conteudo.servicos.titulo}</h2>
+      <p class="serv__nota">{conteudo.servicos.nota}</p>
+    </header>
+
+    <div class="serv__grelha">
+      {servicos.map((grupo) => (
+        <div class="serv__grupo">
+          <h3 class="serv__cat">{grupo.categoria}</h3>
+          <ul class="serv__lista">
+            {grupo.itens.map((item) => (
+              <li class="serv__item">
+                <span class="serv__nome">{item.nome}</span>
+                <span class="serv__linha" aria-hidden="true"></span>
+                <span class="serv__preco">{item.preco}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="serv__acao">
+      <BotaoMarcar />
+    </div>
+  </div>
+</section>
+
+<style>
+  .serv {
+    background: var(--fundo);
+    padding-block: var(--e-xl);
+  }
+
+  .serv__int {
+    max-width: var(--largura-max);
+    margin-inline: auto;
+    padding-inline: var(--e-sm);
+  }
+
+  .serv__topo {
+    text-align: center;
+    max-width: 48ch;
+    margin-inline: auto;
+    margin-bottom: var(--e-lg);
+  }
+
+  .serv__kicker {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--acento);
+    margin: 0 0 var(--e-xs);
+  }
+
+  .serv h2 {
+    font-size: var(--t-h2);
+    margin: 0 0 var(--e-sm);
+  }
+
+  .serv__nota {
+    font-size: var(--t-peq);
+    color: var(--texto-suave);
+    margin: 0;
+  }
+
+  .serv__grelha {
+    display: grid;
+    gap: var(--e-lg);
+  }
+
+  .serv__cat {
+    font-size: var(--t-h3);
+    padding-bottom: var(--e-xs);
+    margin-bottom: var(--e-sm);
+    border-bottom: 1px solid var(--borda);
+  }
+
+  .serv__lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .serv__item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding-block: 0.7rem;
+  }
+
+  .serv__nome {
+    font-size: var(--t-corpo);
+    flex-shrink: 0;
+  }
+
+  .serv__linha {
+    flex: 1;
+    border-bottom: 1px dotted var(--borda);
+    transform: translateY(-0.2rem);
+  }
+
+  .serv__preco {
+    font-size: var(--t-peq);
+    letter-spacing: 0.04em;
+    color: var(--texto-suave);
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .serv__acao {
+    text-align: center;
+    margin-top: var(--e-lg);
+  }
+
+  @media (min-width: 800px) {
+    .serv__grelha {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--e-xl);
+    }
+  }
+</style>

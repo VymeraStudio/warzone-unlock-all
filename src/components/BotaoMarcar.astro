@@ -1,0 +1,56 @@
+---
+import salao from '../data/salao.json';
+
+interface Props {
+  texto?: string;
+  variante?: 'solido' | 'contorno';
+  classe?: string;
+}
+
+const { texto = 'Marcar hora', variante = 'solido', classe = '' } = Astro.props;
+
+const mensagem = encodeURIComponent(
+  `Olá! Gostaria de marcar hora no ${salao.nomeCompleto}.`
+);
+const link = `https://wa.me/${salao.whatsapp}?text=${mensagem}`;
+---
+
+<a href={link} target="_blank" rel="noopener" class={`btn btn--${variante} ${classe}`}>
+  {texto}
+</a>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.85rem 2rem;
+    font-family: var(--fonte-texto);
+    font-size: var(--t-peq);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .btn--solido {
+    background: var(--btn-fundo);
+    color: var(--btn-texto);
+    border: 1px solid var(--btn-fundo);
+  }
+  .btn--solido:hover { background: var(--btn-fundo-hover); }
+
+  .btn--contorno {
+    background: transparent;
+    color: var(--texto);
+    border: 1px solid var(--texto);
+  }
+  .btn--contorno:hover {
+    background: var(--btn-fundo);
+    color: var(--btn-texto);
+  }
+</style>

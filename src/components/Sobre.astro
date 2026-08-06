@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets';
+import conteudo from '../data/conteudo.json';
+import BotaoMarcar from './BotaoMarcar.astro';
+import foto from '../assets/sobre.jpg';
+---
+
+<section class="sobre" id="sobre">
+  <div class="sobre__int">
+    <div class="sobre__foto">
+      <Image
+        src={foto}
+        alt={conteudo.sobre.altFoto}
+        widths={[400, 700]}
+        sizes="(min-width: 900px) 40vw, 100vw"
+        format="webp"
+        quality={80}
+        loading="lazy"
+      />
+    </div>
+
+    <div class="sobre__texto">
+      <p class="sobre__kicker">{conteudo.sobre.kicker}</p>
+      <h2>{conteudo.sobre.nome}</h2>
+
+      {conteudo.sobre.paragrafos.map((p) => <p>{p}</p>)}
+
+      <p class="sobre__assinatura">{conteudo.sobre.assinatura}</p>
+
+      <BotaoMarcar variante="contorno" texto={conteudo.sobre.botao} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .sobre {
+    background: var(--fundo);
+    padding-block: var(--e-xl);
+  }
+
+  .sobre__int {
+    max-width: var(--largura-max);
+    margin-inline: auto;
+    padding-inline: var(--e-sm);
+    display: grid;
+    gap: var(--e-lg);
+  }
+
+  .sobre__foto {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--fundo-alt);
+  }
+
+  .sobre__foto :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sobre__kicker {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--acento);
+    margin: 0 0 var(--e-xs);
+  }
+
+  .sobre h2 {
+    font-size: var(--t-h2);
+    margin: 0 0 var(--e-md);
+  }
+
+  .sobre__texto p {
+    max-width: 52ch;
+    margin: 0 0 var(--e-sm);
+  }
+
+  .sobre__assinatura {
+    font-family: var(--fonte-titulo);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--texto-suave);
+    margin-bottom: var(--e-md) !important;
+  }
+
+  @media (min-width: 900px) {
+    .sobre__int {
+      grid-template-columns: 0.85fr 1fr;
+      gap: var(--e-xl);
+      align-items: center;
+    }
+  }
+</style>

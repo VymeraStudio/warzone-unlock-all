@@ -1,0 +1,95 @@
+/* ═══════════════════════════════════════════
+   MARCA — só isto muda entre clientes
+   ═══════════════════════════════════════════ */
+:root {
+  --marca-1: #F7F2EC;  /* base clara      */
+  --marca-2: #EFE7DE;  /* base alternativa */
+  --marca-3: #D8B8AD;  /* secundária      */
+  --marca-4: #9C8178;  /* média           */
+  --marca-5: #3A2E2B;  /* escura / texto  */
+  --marca-6: #C8A96B;  /* acento          */
+
+  --fonte-titulo: 'Cormorant Garamond', Georgia, serif;
+  --fonte-texto: 'Montserrat Variable', system-ui, sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   SISTEMA — não mexer
+   ═══════════════════════════════════════════ */
+:root {
+  --fundo: var(--marca-1);
+  --fundo-alt: var(--marca-2);
+  --texto: var(--marca-5);
+  --texto-suave: var(--marca-4);
+  --borda: color-mix(in srgb, var(--marca-5) 12%, transparent);
+  --acento: var(--marca-6);
+
+  --btn-fundo: var(--marca-5);
+  --btn-texto: var(--marca-1);
+  --btn-fundo-hover: color-mix(in srgb, var(--marca-5) 88%, black);
+
+  --t-hero: clamp(2.5rem, 8vw, 4.5rem);
+  --t-h2: clamp(1.75rem, 5vw, 2.75rem);
+  --t-h3: 1.5rem;
+  --t-corpo: 1rem;
+  --t-peq: 0.875rem;
+
+  --e-xs: 0.5rem;
+  --e-sm: 1rem;
+  --e-md: 2rem;
+  --e-lg: 4rem;
+  --e-xl: 6rem;
+
+  --largura-max: 1200px;
+  --largura-texto: 65ch;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  font-size: var(--t-corpo);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0;
+}
+
+img { max-width: 100%; display: block; height: auto; }
+
+.container {
+  max-width: var(--largura-max);
+  margin-inline: auto;
+  padding-inline: var(--e-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.hero__foto :global(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+html { scroll-behavior: smooth; }
+:target { scroll-margin-top: 90px; }
+body { padding-bottom: 80px; }
+
+@media (min-width: 900px) {
+  body { padding-bottom: 0; }
+}
+
